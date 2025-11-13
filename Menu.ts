@@ -99,9 +99,15 @@ export function main() {
                 console.log("Digite o Novo nome do produto: ")
                 nome2 = readlinesync.question("")
 
-                produto.atualizarProduto(nome, nome2)
-                
-                
+                console.log("Digite a nova cor do produto: ")
+                cor = readlinesync.question("")
+
+
+                console.log("Digite o novo preço do produto: ")
+                preco = readlinesync.questionFloat("")
+
+                produto.atualizarProduto(nome, nome2, cor, preco)
+                                
                 
                 keyPress()
                 break

@@ -19,11 +19,14 @@ export class ProdutoController implements IProdutoRepository{
         }
     }
 
-    atualizarProduto(nome: string, nome2: string): void {
+    atualizarProduto(nome: string): void {
         let buscaPatins = this.buscarNoArray(nome)
         
+        let nome2, cor, modelo: string
+        let index, tamanho, quantRodas, preco: number
+        
         if(buscaPatins != null){
-            let index = this.estoqueProdutos.indexOf(buscaPatins, 1)
+            index = this.estoqueProdutos.indexOf(buscaPatins, 1)
             buscaPatins.nome = nome2
             console.log("Nome atualizado com sucesso!")
         }else
@@ -32,7 +35,7 @@ export class ProdutoController implements IProdutoRepository{
 
     deletarProduto(nome: string): void {
         let buscaPatins = this.buscarNoArray(nome)
-
+        
         if(buscaPatins != null){
             this.estoqueProdutos.splice(this.estoqueProdutos.indexOf(buscaPatins), 1)
             console.log("Produto Excluido com sucesso")
