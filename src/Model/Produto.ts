@@ -1,12 +1,14 @@
 export abstract class Produto {
 
+
     private _nome: string
     private _cor: string
-    
+    private _preco: number
 
-    constructor(nome: string, cor: string){
+    constructor(nome: string, cor: string, preco: number){
         this._nome = nome
         this._cor = cor
+        this._preco = preco
     
     }
 
@@ -18,7 +20,6 @@ export abstract class Produto {
         this._nome = nome
     }
 
-   
 
     public get cor() {
         return this._cor
@@ -27,9 +28,16 @@ export abstract class Produto {
     public set cor(cor: string){
         this._cor = cor
     }
+
+    public get preco (){
+        return this._preco
+    }
+
+    public set preco(preco: number){
+        this._preco = preco
+    }
     
     public visualizar(): void {
-
 
         console.log("\n\n*****************************************************")
         console.log("Produto")
