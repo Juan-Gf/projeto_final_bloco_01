@@ -1,3 +1,4 @@
+import { colors } from "../util/Colors"
 import { Produto } from "./Produto"
 
 export class Patins extends Produto {
@@ -37,13 +38,15 @@ export class Patins extends Produto {
     public set quantRodas(quantRodas: number){
         this._quantRodas = quantRodas
     }
+
+
     
     public visualizar(): void {
         super.visualizar();
-        console.log("Modelo: " + this._modelo)
-        console.log("Tamanho: " + this.tamanho)
-        console.log("Quantidade de Rodas: " + this.quantRodas)
-        console.log("Preço R$: " + super.preco.toFixed(2))
+        console.log(colors.fg.cyanstrong,"Modelo: " + this._modelo)
+        console.log(" Tamanho: " + this.tamanho)
+        console.log(" Quantidade de Rodas: " + this.quantRodas)
+        console.log(" Preço R$: " + super.preco.toFixed(2))
     }
 
 }

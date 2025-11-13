@@ -1,3 +1,5 @@
+import { colors } from "../util/Colors"
+
 export abstract class Produto {
 
 
@@ -39,11 +41,11 @@ export abstract class Produto {
     
     public visualizar(): void {
 
-        console.log("\n\n*****************************************************")
-        console.log("Produto")
+        console.log(colors.fg.cyanstrong,"\n\n*****************************************************")
+        console.log(" Produto")
         console.log("*****************************************************")
-        console.log("Nome: " + this._nome)
-        console.log("Cor: " + this._cor)
+        console.log(" Nome: " + this._nome)
+        console.log(" Cor: " + this._cor, colors.reset)
 
 
     }

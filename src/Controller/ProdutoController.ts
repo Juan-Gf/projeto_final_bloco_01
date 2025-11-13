@@ -2,6 +2,7 @@ import { promises } from "dns";
 import { Patins } from "../Model/Patins";
 import { Produto } from "../Model/Produto";
 import { IProdutoRepository } from "../Repository/IProdutoRepository";
+import { colors } from "../util/Colors";
 
 export class ProdutoController implements IProdutoRepository{
 
@@ -10,7 +11,8 @@ export class ProdutoController implements IProdutoRepository{
 
     cadastrarProduto(produto: Produto): void {
         this.estoqueProdutos.push(produto)
-        console.log("Produto cadastrado com sucesso!")
+        console.clear()
+        console.log(colors.fg.greenstrong, "Produto cadastrado com sucesso!", colors.reset)
     }
 
     listarProdutos(): void {
@@ -19,18 +21,17 @@ export class ProdutoController implements IProdutoRepository{
         }
     }
 
-    atualizarProduto(nome: string): void {
+    atualizarProduto(nome: string, nome2: string, cor: string, preco: number): void {
         let buscaPatins = this.buscarNoArray(nome)
-        
-        let nome2, cor, modelo: string
-        let index, tamanho, quantRodas, preco: number
-        
+
         if(buscaPatins != null){
-            index = this.estoqueProdutos.indexOf(buscaPatins, 1)
+            let index = this.estoqueProdutos.indexOf(buscaPatins, 1)
             buscaPatins.nome = nome2
-            console.log("Nome atualizado com sucesso!")
+            buscaPatins.cor = cor
+            buscaPatins.preco = preco
+            console.log("Produto atualizado com sucesso!")
         }else
-            console.log("Produto Não encontrado")
+            console.log(colors.fg.redstrong,"Produto Não encontrado",colors.reset)
     }
 
     deletarProduto(nome: string): void {
@@ -41,13 +42,19 @@ export class ProdutoController implements IProdutoRepository{
             console.log("Produto Excluido com sucesso")
         
         }else
-            console.log("Produto Não encontrado")
+            console.log(colors.fg.redstrong,"Produto Não encontrado",colors.reset)
     
     }
 
 
-    procurarProduto(numero: number): void {
+    procurarProduto(nome: string): void {
+        let buscaPatins = this.buscarNoArray(nome)
         
+        if(buscaPatins != null){
+            buscaPatins.visualizar()
+            
+        }else
+            console.log(colors.fg.redstrong,"Produto Não encontrado",colors.reset)
     }
 
      // Checa se uma conta existe

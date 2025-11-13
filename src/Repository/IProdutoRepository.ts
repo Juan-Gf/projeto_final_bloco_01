@@ -7,6 +7,6 @@ export interface IProdutoRepository{
     listarProdutos(): void
     atualizarProduto(nome: string, nome2: string, cor: string, preco: number): void
     deletarProduto(nome: string): void
-    procurarProduto(numero: number): void
+    procurarProduto(nome:string): void
 
 }
